@@ -24,6 +24,8 @@ In the first part (***mc_prom_grafana*** sub-folder) of this repository, I'm dem
 
 ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) The  automation procedure is described [here](https://github.com/yabinmeng/dse_mc_nb/mc_prom_grafana/README.md).
 
+BLUE BOOK (&#x1F4D8;): 📘
+
 
 # 2. Incorporate NoSQLBench Metrics with DSE Metrics in Prometheus and Grafana
 
