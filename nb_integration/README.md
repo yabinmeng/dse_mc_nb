@@ -41,6 +41,11 @@ While NB secnario is running, let's check Graphite UI and we can see that a list
 
 ![nb_graphite_carbon](./screenshots/nb_graphite_carbon.png)
 
+Now that we have NB metrics data fed into Graphite, we can add a Graphite data source in Grafana and add some Grafana dashboards.
+
+![grafana_nb_graphite_ds](./screenshots/grafana_graphite_ds.png)
+
+![grafana_nb_dashboard](./screenshots/grafana_nb_dashboard.png)
 
 
 # Metrics Output Format - CSV Format
