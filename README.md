@@ -36,7 +36,7 @@ In the first part (***mc_prom_grafana*** sub-folder) of this repository, we're g
 
 For more detailed information about how to use NB, please refer to its document site at [here](http://docs.nosqlbench.io/#/). 
 
-## 2.2.1. Combine NB Metrics and DSE Metrics Together 
+## 2.2. Combine NB Metrics and DSE Metrics Together 
 
 One very commond use case of NB is to use it for performance testing (including sizing) exercise againstt a DSE cluster. When doing so, it is often valuable to look the the performance metrics in a holistic view, covering both application side metrics and DSE server side metrics.
 
@@ -44,7 +44,7 @@ In the second part (***nb_integration***) of this repository, I will show how to
 
 ---
 
-&#x1F4D8;&#x1F4D8; The **integration procedure** is described [here](https://github.com/yabinmeng/dse_mc_nb/blob/master/mc_prom_grafana).
+&#x1F4D8;&#x1F4D8; The **integration procedure** is described [here](https://github.com/yabinmeng/dse_mc_nb/tree/master/nb_integration).
 
 ---
 
