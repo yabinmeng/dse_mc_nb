@@ -41,8 +41,9 @@ While NB secnario is running, let's check Graphite UI and we can see that a list
 
 <img src="https://github.com/yabinmeng/dse_mc_nb/blob/master/nb_integration/screenshots/nb_graphite_carbon.png" width=600>
 
-Now that we have NB metrics data fed into Graphite, we can add a [Graphite data source](https://github.com/yabinmeng/dse_mc_nb/blob/master/nb_integration/screenshots/grafana_graphite_ds.png) in Grafana and add some [Grafana dashboards](https://github.com/yabinmeng/dse_mc_nb/blob/master/nb_integration/screenshots/grafana_nb_dashboad.png).
+Now that we have NB metrics data fed into Graphite, we can add a [Graphite data source](https://github.com/yabinmeng/dse_mc_nb/blob/master/nb_integration/screenshots/grafana_graphite_ds.png) in Grafana and add some [Grafana dashboards](<img src="https://github.com/yabinmeng/dse_mc_nb/blob/master/nb_integration/screenshots/grafana_nb_dashboad.png" width=600>).
 
+<img src="https://github.com/yabinmeng/dse_mc_nb/blob/master/nb_integration/screenshots/grafana_graphite_ds.png" width=400> <img src="https://github.com/yabinmeng/dse_mc_nb/blob/master/nb_integration/screenshots/grafana_nb_dashboad.png" width=600>
 
 
 # Metrics Output Format - CSV Format
