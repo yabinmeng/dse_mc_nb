@@ -39,7 +39,7 @@ $ ./nb run driver=cql workload=cql-iot.yaml host="<dse_server_ip> tags=phase:ram
 
 While NB secnario is running, let's check Graphite UI and we can see that a list of execution metrics related with this particular named scenario ("cql-iot.yaml") are available:
 
-![nb_graphite_carbon](./screenshots/nb_graphite_carbon.png)
+![nb_graphite_carbon](./screenshots/nb_graphite_carbon.png=1800x1200)
 
 
 
