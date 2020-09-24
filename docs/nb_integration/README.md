@@ -34,7 +34,7 @@ Please refer [Graphite doucmentation](https://graphite.readthedocs.io/en/latest/
 After installed, Graphite Carbon will listen on **port 2003** by default. From NB perspective, this is the port NB is going to send metrics to. An example is as below:
 
 ```
-$ ./nb run driver=cql workload=cql-iot.yaml host="<dse_server_ip> tags=phase:rampup threads=5 cycles=5M --report-graphite-to <graphite_server_ip>:2003
+$ ./nb run driver=cql workload=cql-iot.yaml host="<dse_server_ip> tags=phase:rampup threads=5 cycles=5M --report-graphite-to <graphite_server_machine_ip>:2003
 ```
 
 While NB secnario is running, let's check Graphite UI and we can see that a list of execution metrics related with this particular named scenario ("cql-iot.yaml") are available:
@@ -50,6 +50,38 @@ Option 1 requires installing a complete Graphite server and all its dependency c
 Now, since NB is able to expose metrices through [Graphite Plaintext Protocol](https://graphite.readthedocs.io/en/latest/feeding-carbon.html#the-plaintext-protocol), the easiest approach to brdige the gap between NB and our existing Prometheus and Grafana based monitoring platform is through [Prometheus Graphite Exporter](https://github.com/prometheus/graphite_exporter), as demonstrated in the following diagram.
 
 <img src="https://github.com/yabinmeng/dse_mc_nb/blob/master/docs/nb_integration/screenshots/graphite_exporter.png" width=600>
+
+So when a Prometheus Graphite Exporter process is running, it listens on (by default) port 9109 for incoming metrics stream based on Graphite Plaintext Protocol and meanwhile it also has port  9108 open for Prometheus server to scrape data.
+
+From NB perspective, this is the port NB is going to send metrics to. An example is as below (**note** the port difference)
+
+```
+$ ./nb run driver=cql workload=cql-iot.yaml host="<dse_server_ip> tags=phase:rampup threads=5 cycles=5M --report-graphite-to <graphite_exporter_machine_ip>:1909
+```
+
+Our existing Prometheus and Grafana servers are launched using pre-configured docker containers through a [docker-compose](https://github.com/datastax/dse-metric-reporter-dashboards/blob/master/docker-compose.yml) file (see [here](https://github.com/datastax/dse-metric-reporter-dashboards) for more details).
+
+We can modifiy that docker-compose file a bit so that a Prometheus Graphite Exporter is also started as a dependency container on which Prometheus and Grafana containers rely on. The updated docker compose file looks like this:
+
+```
+ersion: "3"
+services:
+  graphite-exporter:
+    container_name: nb-metric-dashboards_graphite_exporter_1
+    image: "prom/graphite-exporter"
+    ports:
+      - "9109:9109"
+  prometheus:
+    ... ...
+    links:
+      - "graphite-exporter"
+  grafana:
+    ... ...
+    links:
+      - "graphite-exporter"
+```
+
+The complete upadated docker-compose file can be found [here](https://github.com/yabinmeng/dse_mc_nb/tree/master/scripts/docker/docker-compose.yml).
 
 
 # 3. NB Metrics Output Format - CSV Format
