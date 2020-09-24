@@ -22,7 +22,9 @@ Although DataStax has already simplified the integration of DSE MC with Promethe
 
 In the first part (***mc_prom_grafana*** sub-folder) of this repository, I'm demonstrating how to use Ansible to automate the integration of DSE metrics with Prometheus and Grafana via DSE MC. All the above mentioned manual steps are taken care of and the Ansible playbook is also able to automatically detect and configure almost all DSE cluster specific information (e.g. DSE cluster name; DSE node IP list) as much as possible.
 
-&#x1F4D8;&#x1F4D8; The  automation procedure is described [here](https://github.com/yabinmeng/dse_mc_nb/mc_prom_grafana/README.md).
+---
+
+&#x1F4D8;&#x1F4D8; The **automation procedure** is described [here](https://github.com/yabinmeng/dse_mc_nb/mc_prom_grafana/README.md).
 
 
 # 2. Incorporate NoSQLBench Metrics with DSE Metrics in Prometheus and Grafana

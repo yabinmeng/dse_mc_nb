@@ -1,9 +1,11 @@
 
-# 
+# 1. Overview
 
-#### 1.2.1.1. **hosts** file 
+The Ansible playbook (*dse_metrics_collector.yaml*) presented here is used to automate the [procedure](https://docs.datastax.com/en/monitoring/doc/monitoring/metricsCollector/mcExportMetricsDocker.html) of exporting DSE metrics using DSE MC to preconfigured Docker images.
 
-In order to monitor a specific DSE cluster, we need to first update the **hosts** file by adding the proper host machine IP(s) under the two categories: 
+## 1.1. **hosts** file 
+
+We first need to update the **hosts** file by adding the proper host machine IP(s) under the two categories: 
 * *[dse_server]*: the list of IPs of the DSE servers in the cluster 
 * *[metrics_server]*: the host machine IP where the Prometheus and Grafana servers are running
 
@@ -17,14 +19,15 @@ In order to monitor a specific DSE cluster, we need to first update the **hosts*
 [metrics_server]
 <Prometheus_and_Grafana_Host_IP>
 ```
-#### 1.2.1.2. Get DSE Server IP List
+
+### 1.1.1. Get DSE Server IP List
 
 * For a DSE cluster (either single-DC or multi-DC), the following bash command can be used to get the IP list of all DSE servers within the cluster. 
 ```
 $  nodetool status | grep -E -o "([0-9]{1,3}[\.]){3}[0-9]{1,3}"
 ```
 
-#### 1.2.1.3. Executing the Script
+# 1.2. Execute the Script
 
 Running the Ansible playbook is simple, as below. Please make sure the required SSH access (with sudo privilege) for Ansible execution is pre-configured properly.
 
