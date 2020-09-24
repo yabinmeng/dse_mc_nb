@@ -24,7 +24,7 @@ In the first part (***mc_prom_grafana*** sub-folder) of this repository, we're g
 
 ---
 
-&#x1F4D8;&#x1F4D8; The **automation procedure** is described [here](https://github.com/yabinmeng/dse_mc_nb/blob/master/mc_prom_grafana).
+&#x1F4D8;&#x1F4D8; The **automation procedure** is described [here](https://github.com/yabinmeng/dse_mc_nb/tree/master/docs/mc_prom_grafana).
 
 ---
 
@@ -44,7 +44,7 @@ In the second part (***nb_integration***) of this repository, I will show how to
 
 ---
 
-&#x1F4D8;&#x1F4D8; The **integration procedure** is described [here](https://github.com/yabinmeng/dse_mc_nb/tree/master/nb_integration).
+&#x1F4D8;&#x1F4D8; The **integration procedure** is described [here](https://github.com/yabinmeng/dse_mc_nb/tree/master/docs/nb_integration).
 
 ---
 
