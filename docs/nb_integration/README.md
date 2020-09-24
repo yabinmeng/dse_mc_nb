@@ -1,4 +1,4 @@
-# Introduction to NB Metrics Output
+# 1. Introduction to NB Metrics Output
 
 When executing an NB scenario, there are different ways to generate the execution metrics:
 
@@ -13,9 +13,9 @@ In the first part of this repository, we launched 2 pre-built docker containers 
 
 **NOTE**: The NB option of "--docker-metrics" launches its own Prometheus and Grafana containers and can't be easily integrated with existing DSE MC Prometheus and Grafana solution (either dockerized or not). This option is therefore not considered in this repository.
 
-# Metrics Output Format - Graphite
+# 2. NB Metrics Output Format - Graphite
 
-NB actually has an option "--report-graphite-to <graphite_srv_ip>[:<graphite_listening_port>]" that can exporting NB metrics to a Graphite server directly. Since Graphite can be used as a direct data source to Grafana, it is possible for us to integrate NB metrics into existing Prometheus and Grafana monitoring platform for DSE cluster metrics.
+NB actually has an option "**--report-graphite-to <graphite_srv_ip>[:<graphite_listening_port>]**" that can exporting NB metrics to a Graphite server directly. Since Graphite can be used as a direct data source to Grafana, it is possible for us to integrate NB metrics into existing Prometheus and Grafana monitoring platform for DSE cluster metrics.
 
 There are 2 ways to do this:
 * **Option 1**: Use a standalone, full-fledged Graphite server and bypass Promeheus. By full-fledged Graphite server, I mean it has all 3 components:
@@ -27,7 +27,7 @@ There are 2 ways to do this:
 
 The final code/script presented in this repository is based on **Option 2**, but I will also cover Option 1 in the document.
 
-## Option 1: Exporting NB Metrics to Grafana through a Complete Graphite Server
+## 2.1. Option 1 - Exporting NB Metrics to Grafana via a Standalone Graphite Server
 
 Please refer [Graphite doucmentation](https://graphite.readthedocs.io/en/latest/install.html#id2) for detailed methods of how to install Graphite. A good reference can also be found from [here](https://www.vultr.com/docs/how-to-install-and-configure-graphite-on-ubuntu-16-04#Step_5__Configure_Carbon).
 
@@ -43,10 +43,11 @@ While NB secnario is running, let's check Graphite UI and we can see that a list
 
 Now that we have NB metrics data fed into Graphite, we can add a Graphite data source in Grafana and add some Grafana dashboards that correspond to NB metrics.
 
+## 2.2. Option 2 - Exporting NB Metrics to Grafana via Prometheus and Prometheus Graphite Exporter
 
+Option 1 requires 
 
-
-# Metrics Output Format - CSV Format
+# 3. NB Metrics Output Format - CSV Format
 
 One common metrics output format is CSV file. The following NB "run" command with option "**--report-csv-to <output_subfolder_name>**" option will generate a series of CSV files in the specified subfolder.
 
