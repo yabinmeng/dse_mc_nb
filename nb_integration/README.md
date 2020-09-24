@@ -45,7 +45,7 @@ Now that we have NB metrics data fed into Graphite, we can add a Graphite data s
 
 <img src="https://github.com/yabinmeng/dse_mc_nb/blob/master/nb_integration/screenshots/grafana_graphite_ds.png" width=400>
 
-<img src="https://github.com/yabinmeng/dse_mc_nb/blob/master/nb_integration/screenshots/grafana_nb_dashboard.png" width=400>
+<img src="https://github.com/yabinmeng/dse_mc_nb/blob/master/nb_integration/screenshots/grafana_nb_dashboad.png" width=400>
 
 
 # Metrics Output Format - CSV Format
