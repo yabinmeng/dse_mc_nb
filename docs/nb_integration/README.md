@@ -45,7 +45,12 @@ Now that we have NB metrics data fed into Graphite, we can add a Graphite data s
 
 ## 2.2. Option 2 - Exporting NB Metrics to Grafana via Prometheus and Prometheus Graphite Exporter
 
-Option 1 requires 
+Option 1 requires installing a complete Graphite server and all its dependency components (including a database and a web server). For many cases, this may not be a feasible option (e.g. being either too complicated or restricted by security policies for production deployment). 
+
+Now, since NB is able to expose metrices through [Graphite Plaintext Protocol](https://graphite.readthedocs.io/en/latest/feeding-carbon.html#the-plaintext-protocol), the easiest approach to brdige the gap between NB and our existing Prometheus and Grafana based monitoring platform is through [Prometheus Graphite Exporter](https://github.com/prometheus/graphite_exporter), as demonstrated in the following diagram.
+
+<img src="https://github.com/yabinmeng/dse_mc_nb/blob/master/docs/nb_integration/screenshots/graphite_exporter.png" width=600>
+
 
 # 3. NB Metrics Output Format - CSV Format
 
@@ -72,6 +77,6 @@ t,count,max,mean,min,stddev,p50,p75,p95,p98,p99,p999,mean_rate,m1_rate,m5_rate,m
 ... ... 
 ```
 
-## Feed Historical NB CSV Metrics into Prometheus and Grafana
+## 3.1. Feed Historical NB CSV Metrics into Prometheus and Grafana
 
 
