@@ -13,14 +13,14 @@ DataStax has provided a [repository](https://github.com/datastax/dse-metric-repo
 * Prometheus configuration template for collecting DSE cluster metrics via DSE MC.
 * Grafana configuration template and pre-built dashboard definitions to view the collected DSE server and OS metrics.
 
-## 1.2. Automate the Integration
+## 1.2. Automate the Integration Procedure
 
 Although DataStax has already simplified the integration of DSE MC with Prometheus and Grafna, the [procedure](https://docs.datastax.com/en/monitoring/doc/monitoring/metricsCollector/mcExportMetricsDocker.html) still has some manual work involved. For example,
 * We still need to install docker and docker compose on the host machine where we intend to run Prometheus and Grafana (assuming we don't have existing Prometheus and Grafana servers)
 * We still need to configure "collectd" and DSE MC on each of DSE servers.
 * We still need to adjust Prometheus configuration per DSE cluster so it can monitor all DSE nodes within the cluster.
 
-In the first part (***mc_prom_grafana*** sub-folder) of this repository, I'm demonstrating how to use Ansible to automate the integration of DSE metrics with Prometheus and Grafana via DSE MC. All the above mentioned manual steps are taken care of and the Ansible playbook is also able to automatically detect and configure almost all DSE cluster specific information (e.g. DSE cluster name; DSE node IP list) as much as possible.
+In the first part (***mc_prom_grafana*** sub-folder) of this repository, we're going to demonstrate how to use Ansible to automate the integration of DSE metrics with Prometheus and Grafana via DSE MC. All the above mentioned manual steps are taken care of and the Ansible playbook is also able to automatically detect and configure almost all DSE cluster specific information (e.g. DSE cluster name; DSE node IP list) as much as possible.
 
 ---
 
@@ -30,29 +30,44 @@ In the first part (***mc_prom_grafana*** sub-folder) of this repository, I'm dem
 
 # 2. Incorporate NoSQLBench Metrics with DSE Metrics in Prometheus and Grafana
 
-## 2.1. Quick Introduction of NoSQLBench
+## 2.1. Quick Introduction of NoSQLBench (NB)
 
+[NoSQLBench (NB)](https://github.com/nosqlbench/nosqlbench) is "an open-source, pluggable, NoSQL benchmarking sutie". NB is both a performance testing execution framework and workload generation engine. It supports testing different systems (e.g. Cassandra, DSE, MongoDB, Kafka, etc.) through pluggable drivers. 
 
-# Appendix. Color Unicode Symbols in Mark-down
+For more detailed information about how to use NB, please refer to its document site at [here](http://docs.nosqlbench.io/#/). 
+
+## 2.2.1. Combine NB Metrics and DSE Metrics Together 
+
+One very commond use case of NB is to use it for performance testing (including sizing) exercise againstt a DSE cluster. When doing so, it is often valuable to look the the performance metrics in a holistic view, covering both application side metrics and DSE server side metrics.
+
+In the second part (***nb_integration***) of this repository, I will show how to consolidate both NB metrics and DSE (MC) metris together in the Prometheus server and show the metrics dashboards via the same Grafana UI.
+
+---
+
+&#x1F4D8;&#x1F4D8; The **integration procedure** is described [here](https://github.com/yabinmeng/dse_mc_nb/blob/master/mc_prom_grafana).
+
+---
+
+# Appendix. Some Color Unicode Symbols in Mark-down
 
 ```
-    RED APPLE (&#x1F34E;): 🍎
-    GREEN APPLE (&#x1F34F;): 🍏
-    BLUE HEART (&#x1F499;): 💙
-    GREEN HEART (&#x1F49A;): 💚
-    YELLOW HEART (&#x1F49B;): 💛
-    PURPLE HEART (&#x1F49C;): 💜
-    GREEN BOOK (&#x1F4D7;): 📗
-    BLUE BOOK (&#x1F4D8;): 📘
-    ORANGE BOOK (&#x1F4D9;): 📙
-    LARGE RED CIRCLE (&#x1F534;): 🔴
-    LARGE BLUE CIRCLE (&#x1F535;): 🔵
-    LARGE ORANGE DIAMOND (&#x1F536;): 🔶
-    LARGE BLUE DIAMOND (&#x1F537;): 🔷
-    SMALL ORANGE DIAMOND (&#x1F538;): 🔸
-    SMALL BLUE DIAMOND (&#x1F539;): 🔹
-    UP-POINTING RED TRIANGLE (&#x1F53A;): 🔺
-    DOWN-POINTING RED TRIANGLE (&#x1F53B;): 🔻
-    UP-POINTING SMALL RED TRIANGLE (&#x1F53C;): 🔼
-    DOWN-POINTING SMALL RED TRIANGLE (&#x1F53D;): 🔽
+RED APPLE (&#x1F34E;): 🍎
+GREEN APPLE (&#x1F34F;): 🍏
+BLUE HEART (&#x1F499;): 💙
+GREEN HEART (&#x1F49A;): 💚
+YELLOW HEART (&#x1F49B;): 💛
+PURPLE HEART (&#x1F49C;): 💜
+GREEN BOOK (&#x1F4D7;): 📗
+BLUE BOOK (&#x1F4D8;): 📘
+ORANGE BOOK (&#x1F4D9;): 📙
+LARGE RED CIRCLE (&#x1F534;): 🔴
+LARGE BLUE CIRCLE (&#x1F535;): 🔵
+LARGE ORANGE DIAMOND (&#x1F536;): 🔶
+LARGE BLUE DIAMOND (&#x1F537;): 🔷
+SMALL ORANGE DIAMOND (&#x1F538;): 🔸
+SMALL BLUE DIAMOND (&#x1F539;): 🔹
+UP-POINTING RED TRIANGLE (&#x1F53A;): 🔺
+DOWN-POINTING RED TRIANGLE (&#x1F53B;): 🔻
+UP-POINTING SMALL RED TRIANGLE (&#x1F53C;): 🔼
+DOWN-POINTING SMALL RED TRIANGLE (&#x1F53D;): 🔽
 ```
