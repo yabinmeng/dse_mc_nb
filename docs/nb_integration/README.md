@@ -98,7 +98,7 @@ Now since the NB metrics can be scraped in Prometheus (through Graphite Exporter
 
 The Grafana dashboard below shows the throughput metrics (mean/m-1/m-5/m-15) for the executed NB scenario.
 
-<img src="https://github.com/yabinmeng/dse_mc_nb/blob/master/docs/nb_integration/screenshots/nb_grafana_dasboard_rate.png" width=600>
+<img src="https://github.com/yabinmeng/dse_mc_nb/blob/master/docs/nb_integration/screenshots/nb_grafana_dasboard_rate.png" width=800>
 
 
 
