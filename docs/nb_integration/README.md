@@ -51,7 +51,7 @@ Option 1 requires installing a complete Graphite server and all its dependency c
 
 Now, since NB is able to expose metrices through [Graphite Plaintext Protocol](https://graphite.readthedocs.io/en/latest/feeding-carbon.html#the-plaintext-protocol), the easiest approach to brdige the gap between NB and our existing Prometheus and Grafana based monitoring platform is through [Prometheus Graphite Exporter](https://github.com/prometheus/graphite_exporter), as demonstrated in the following diagram.
 
-<img src="https://github.com/yabinmeng/dse_mc_nb/blob/master/docs/nb_integration/screenshots/graphite_exporter.png" width=600>
+<img src="https://github.com/yabinmeng/dse_mc_nb/blob/master/docs/nb_integration/screenshots/graphite_exporter.png" width=800>
 
 So when a Prometheus Graphite Exporter process is running, it listens on (by default) port 9109 for incoming metrics stream based on Graphite Plaintext Protocol and meanwhile it also has port  9108 open for Prometheus server to scrape data. From NB perspective, port 9109 is where NB is going to send metrics to. 
 
