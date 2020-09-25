@@ -104,7 +104,7 @@ The Grafana dashboard below shows the throughput metrics (mean/m-1/m-5/m-15) for
 
 # 3. Automate the Integration
 
-The same Ansible playbook, **dse_metrics_collector.yaml**, is also used for automating NB metrics integration as we described above, but with an extra command line variable:  ***--extra-vars "nb_integ=true"
+The same Ansible playbook, *dse_metrics_collector.yaml*, is also used for automating NB metrics integration as we described above, but with an extra command line variable:  **--extra-vars "nb_integ=true"**
 
 ```bash
 ansible-playbook -i ./hosts dse_metrics_collector.yaml --extra-vars "nb_integ=true" --private-key <ssh_private_key> -u <ssh_user>
