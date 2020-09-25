@@ -23,3 +23,4 @@
   become_method: sudo
   roles:
   - { role: config_mc_srv_post }
+  - { role: start_containers }

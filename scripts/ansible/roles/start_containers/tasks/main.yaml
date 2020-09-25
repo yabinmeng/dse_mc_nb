@@ -1,0 +1,9 @@
+---
+- name: Start docker container of Prometheus and Grafana servers 
+  docker_compose:
+    project_src: /opt/{{ dse_mc_master_branch_name }}
+    state: present
+  register: dc_output
+
+#- debug: 
+#    var: dc_output

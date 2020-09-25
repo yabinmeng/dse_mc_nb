@@ -20,7 +20,7 @@ Although DataStax has already simplified the integration of DSE MC with Promethe
 * We still need to configure "collectd" and DSE MC on each of DSE servers.
 * We still need to adjust Prometheus configuration per DSE cluster so it can monitor all DSE nodes within the cluster.
 
-In the first part (***mc_prom_grafana*** sub-folder) of this repository, we're going to demonstrate how to use Ansible to automate the integration of DSE metrics with Prometheus and Grafana via DSE MC. All the above mentioned manual steps are taken care of and the Ansible playbook is also able to automatically detect and configure almost all DSE cluster specific information (e.g. DSE cluster name; DSE node IP list) as much as possible.
+In the first part (***docs/mc_prom_grafana*** sub-folder) of this repository, we're going to demonstrate how to use Ansible to automate the integration of DSE metrics with Prometheus and Grafana via DSE MC. All the above mentioned manual steps are taken care of and the Ansible playbook is also able to automatically detect and configure almost all DSE cluster specific information (e.g. DSE cluster name; DSE node IP list) as much as possible.
 
 ---
 
@@ -40,7 +40,7 @@ For more detailed information about how to use NB, please refer to its document 
 
 One very commond use case of NB is to use it for performance testing (including sizing) exercise againstt a DSE cluster. When doing so, it is often valuable to look the the performance metrics in a holistic view, covering both application side metrics and DSE server side metrics.
 
-In the second part (***nb_integration***) of this repository, I will show how to consolidate both NB metrics and DSE (MC) metris together in the Prometheus server and show the metrics dashboards via the same Grafana UI.
+In the second part (***docs/nb_integration***) of this repository, I will show how to consolidate both NB metrics and DSE (MC) metris together in the Prometheus server and show the metrics dashboards via the same Grafana UI.
 
 ---
 
