@@ -38,7 +38,7 @@ For more detailed information about how to use NB, please refer to its document 
 
 ## 2.2. Combine NB Metrics and DSE Metrics Together 
 
-One very commond use case of NB is to use it for performance testing (including sizing) exercise againstt a DSE cluster. When doing so, it is often valuable to look the the performance metrics in a holistic view, covering both application side metrics and DSE server side metrics.
+When using NB for performance testing, it is often valuable to look the the performance metrics in a holistic view, covering both application side metrics (NB execution metrics) and DSE server side metrics.
 
 In the second part (***docs/nb_integration***) of this repository, I will show how to consolidate both NB metrics and DSE (MC) metris together in the Prometheus server and show the metrics dashboards via the same Grafana UI.
 
