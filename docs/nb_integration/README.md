@@ -43,7 +43,7 @@ While NB secnario is running, let's check Graphite UI and we can see that a list
 
 Now that we have NB metrics data fed into Graphite, we can add a Graphite data source in Grafana and add some Grafana dashboards that correspond to NB metrics.
 
-<img src="https://github.com/yabinmeng/dse_mc_nb/blob/master/docs/nb_integration/screenshots/grafana_graphite_ds.png" width=400 height=600> <img src="https://github.com/yabinmeng/dse_mc_nb/blob/master/docs/nb_integration/screenshots/grafana_nb_dashboad.png" width=600 height=600>
+<img src="https://github.com/yabinmeng/dse_mc_nb/blob/master/docs/nb_integration/screenshots/grafana_graphite_ds.png" width=400 height=500> <img src="https://github.com/yabinmeng/dse_mc_nb/blob/master/docs/nb_integration/screenshots/grafana_nb_dashboad.png" width=600 height=500>
 
 ## 2.2. Option 2 - Exporting NB Metrics to Grafana via Prometheus and Prometheus Graphite Exporter
 
