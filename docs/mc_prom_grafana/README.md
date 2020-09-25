@@ -3,11 +3,11 @@
 
 The Ansible playbook (*dse_metrics_collector.yaml*) presented here is used to automate the [procedure](https://docs.datastax.com/en/monitoring/doc/monitoring/metricsCollector/mcExportMetricsDocker.html) of exporting DSE metrics using DSE MC to preconfigured Docker images. In particular, the Ansible playbook does the following tasks:
 
-* Install docker engine and docker-compose
-* Download and install DSE MC
-* Configure Prometheus collectd exporter on each DSE server
-* Configure Prometheus server to scrape data from every DSE server
-* Start docker containers for Prometheus and Grafana 
+* [Metrics Server Host] Install docker engine and docker-compose
+* [Metrics Server Host] Download and install DSE MC
+* [DSE Server Hosts] Configure Prometheus collectd exporter on each DSE server
+* [Metrics Server Host] Configure Prometheus server to scrape data from every DSE server
+* [Metrics Server Host] Start docker containers for Prometheus and Grafana 
 
 # 2. Execute the Script
 
