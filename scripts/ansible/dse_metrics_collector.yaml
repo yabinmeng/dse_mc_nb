@@ -21,6 +21,13 @@
   any_errors_fatal: true
   become: true
   become_method: sudo
+  tasks:
+  - name: copy NB integration docker-compose.yaml
+    get_url: 
+      url: "https://raw.githubusercontent.com/yabinmeng/dse_mc_nb/master/scripts/docker/docker-compose.yml"
+      dest: "/opt/{{ dse_mc_master_branch_name }}"
+      force: yes
+    when: (nb_integ is defined) and (nb_integ|bool == True)
   roles:
   - { role: config_mc_srv_post }
   - { role: start_containers }
