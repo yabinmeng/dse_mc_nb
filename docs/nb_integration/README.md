@@ -9,7 +9,7 @@ When executing an NB scenario, there are different ways to generate the executio
 * To a monitoring system via graphite
 * via the --docker-metrics option
 
-In the first part of this repository, we launched 2 pre-built docker containers (one for Prometheus server and one for Grafana server) as the DSE MC monitoring platform. The goal in this part of the repository is on how to integrate NB metrics (esp. in CSV format and in Graphite mode) into the same Prometheus and Grafana monitoring platform on which DSE cluster metrics are monitored and displayed. 
+In the first part of this repository, we launched 2 pre-built docker containers (one for Prometheus server and one for Grafana server) as the DSE MC monitoring platform. The goal in this part of the repository is on how to integrate NB metrics into the same Prometheus and Grafana monitoring platform on which DSE cluster metrics are monitored and displayed. 
 
 **NOTE**: The NB option of "--docker-metrics" launches its own Prometheus and Grafana containers and can't be easily integrated with existing DSE MC Prometheus and Grafana solution (either dockerized or not). This option is therefore not considered in this repository.
 
@@ -94,39 +94,8 @@ Let's run the NB scenario (cql-iot.yaml) again (**NOTE** the graphite port diffe
 $ ./nb run driver=cql workload=cql-iot.yaml host="<dse_server_ip> tags=phase:rampup threads=5 cycles=5M --report-graphite-to <graphite_exporter_machine_ip>:1909
 ```
 
-Now since the NB metrics can be scraped in Prometheus (through Graphite Exporter), we're able to create Grafana dashboards for NB metrics, along with other pre-configured DSE dashboards. **NOTE** that there is NO need to add a different data source because both NB metrics and DSE metrics are from Prometheus.
+Now since the NB metrics can be scraped in Prometheus (through Graphite Exporter), we're able to create Grafana dashboards for NB metrics, along with other pre-configured DSE dashboards. **NOTE** that there is NO need to add a different data source because both NB metrics and DSE metrics data are managed in the same Prometheus server.
 
 The Grafana dashboard below shows the throughput metrics (mean/m-1/m-5/m-15) for the executed NB scenario.
 
 <img src="https://github.com/yabinmeng/dse_mc_nb/blob/master/docs/nb_integration/screenshots/nb_grafana_dasboard_rate.png" width=800>
-
-
-
-# 3. NB Metrics Output Format - CSV Format
-
-One common metrics output format is CSV file. The following NB "run" command with option "**--report-csv-to <output_subfolder_name>**" option will generate a series of CSV files in the specified subfolder.
-
-```
-$ ./nb run driver=cql workload=cql-iot.yaml host="<dse_srv_ip>" tags=phase:rampup threads=10 cycles=5M --progress console:10s --report-csv-to csv_result
-```
-
-In the above example, the NB scenario definition file is "cql-iot.yaml" file and when the execution finishes, we'll see a bunch of CSV files created in a subfolder named "csv_result", with the following naming convention:
-* <scenario_definition_file_name>.<metric_category>.csv, e.g.
-  * cql-iot.yaml.execute.csv, or 
-  * cql-iot.yaml.result.csv,
-  * ... ...
-
-Among these metrics output CSV files, the most important one is the "xxx.result.csv" file which represents the scenario's overall execution results that are measured through a variety of different performance metrics. 
-
-The metrics in these result files are organized in a time-series manner. A snippet of the "xxx.result.csv" file is shown as below:
-
-```
-t,count,max,mean,min,stddev,p50,p75,p95,p98,p99,p999,mean_rate,m1_rate,m5_rate,m15_rate,rate_unit,duration_unit
-1600914791,34117,60940287.000000,1803827.492156,17806.000000,1905487.655309,1410687.000000,1927103.000000,4036351.000000,5983743.000000,7678719.000000,22299647.000000,5154.923941,4766.000000,4766.000000,4766.000000,calls/second,nanoseconds
-1600914801,107287,27215871.000000,1303639.684363,1749.000000,1045685.701754,1109119.000000,1414655.000000,2206463.000000,4069759.000000,5847807.000000,13336575.000000,6559.366070,5156.514798,4848.676947,4793.825412,calls/second,nanoseconds
-... ... 
-```
-
-## 3.1. Feed Historical NB CSV Metrics into Prometheus and Grafana
-
-
