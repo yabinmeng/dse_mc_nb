@@ -101,3 +101,16 @@ Now since the NB metrics can be scraped in Prometheus (through Graphite Exporter
 The Grafana dashboard below shows the throughput metrics (mean/m-1/m-5/m-15) for the executed NB scenario.
 
 <img src="https://github.com/yabinmeng/dse_mc_nb/blob/master/docs/nb_integration/screenshots/nb_grafana_dasboard_rate.png" width=1000 height=600>
+
+# 3. Automate the Integration
+
+The same Ansible playbook, **dse_metrics_collector.yaml**, is also used for automating NB metrics integration as we described above, but with an extra command line variable:  ***--extra-vars "nb_integ=true"
+
+```bash
+ansible-playbook -i ./hosts dse_metrics_collector.yaml --extra-vars "nb_integ=true" --private-key <ssh_private_key> -u <ssh_user>
+```
+
+Once the Ansible playbook is successfully executed, run "docker -ps" command to verify that there are 3 docker containers are launched:
+* One for Grafana
+* One for Prometheus
+* One for Prometheus Graphite Exporter

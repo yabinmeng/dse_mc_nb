@@ -1,7 +1,8 @@
 [dse_server]
-10.101.34.5
-10.101.32.34
-10.101.35.233
+<DSE_Srv1_Ip>
+<DSE_Srv2_Ip>
+<DSE_Srv3_Ip>
+...
 
 [metrics_server]
-10.101.34.5
+<Metrics_Srv_Ip>
