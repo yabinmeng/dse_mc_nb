@@ -9,9 +9,9 @@ The Ansible playbook (*dse_metrics_collector.yaml*) presented here is used to au
 * Configure Prometheus server to scrape data from every DSE server
 * Start docker containers for Prometheus and Grafana 
 
-# Execute the Script
+# 2. Execute the Script
 
-## 1.1. **hosts** file 
+## 2.1. **hosts** file 
 
 We first need to update the **hosts** file by adding the proper host machine IP(s) under the two categories: 
 * *[dse_server]*: the list of IPs of the DSE servers in the cluster 
@@ -28,14 +28,14 @@ We first need to update the **hosts** file by adding the proper host machine IP(
 <Prometheus_and_Grafana_Host_IP>
 ```
 
-### 1.1.1. Get DSE Server IP List
+### 2.1.1. Get DSE Server IP List
 
 * For a DSE cluster (either single-DC or multi-DC), the following bash command can be used to get the IP list of all DSE servers within the cluster. 
 ```
 $  nodetool status | grep -E -o "([0-9]{1,3}[\.]){3}[0-9]{1,3}"
 ```
 
-# 1.2. Ansible playbook
+## 2.2. Ansible playbook
 
 ```bash
 ansible-playbook -i ./hosts dse_metrics_collector.yaml --private-key <ssh_private_key> -u <ssh_user>
