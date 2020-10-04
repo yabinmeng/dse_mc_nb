@@ -71,3 +71,5 @@ DOWN-POINTING RED TRIANGLE (&#x1F53B;): 🔻
 UP-POINTING SMALL RED TRIANGLE (&#x1F53C;): 🔼
 DOWN-POINTING SMALL RED TRIANGLE (&#x1F53D;): 🔽
 ```
+
+**NOTE**: for more color unicode symbols, please check [here](https://apps.timwhitlock.info/emoji/tables/unicode)
