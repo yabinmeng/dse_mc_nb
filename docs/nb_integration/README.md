@@ -93,7 +93,7 @@ f399e98a20b7        grafana/grafana:5.3.2     "/run.sh"                24 hours 
 Let's run the NB scenario (cql-iot.yaml) again (**NOTE** the graphite port difference).
 
 ```
-$ ./nb run driver=cql workload=cql-iot.yaml host="<dse_server_ip> tags=phase:rampup threads=5 cycles=5M --report-graphite-to <graphite_exporter_machine_ip>:1909
+$ ./nb run driver=cql workload=cql-iot.yaml host="<dse_server_ip> tags=phase:rampup threads=5 cycles=5M --report-graphite-to <graphite_exporter_machine_ip>:9109
 ```
 
 Now since the NB metrics can be scraped in Prometheus (through Graphite Exporter), we're able to create Grafana dashboards for NB metrics, along with other pre-configured DSE dashboards. **NOTE** that there is NO need to add a different data source because both NB metrics and DSE metrics data are managed in the same Prometheus server.

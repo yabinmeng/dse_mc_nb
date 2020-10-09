@@ -1,2 +1,4 @@
 /dse_mc_nb.code-workspace
 scripts/ansible/hosts_bkup
+scripts/ansible/.python-version
+.gitignore
