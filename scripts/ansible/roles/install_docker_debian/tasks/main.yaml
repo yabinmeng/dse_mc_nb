@@ -5,6 +5,7 @@
     state: present
     update_cache: yes
   with_items:
+    - python-apt
     - apt-transport-https
     - ca-certificates
     - curl
@@ -44,11 +45,16 @@
     name: docker-ce
     update_cache: yes
     state: latest
+    
+- name: Ensure "docker" group exists
+  group:
+    name: docker
+    state: present
 
 - name: Add remote user "{{ remote_operator_user }} to "docker" group
   user:
     name: "{{ remote_operator_user }}"
-    group: "docker"
+    groups: "docker"
     append: yes
 
 #- name: Install docker-compose (version {{ docker_compose_version }})
